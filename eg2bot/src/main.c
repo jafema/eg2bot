@@ -43,8 +43,8 @@ static void configure_PWM(void)
     mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, PWM_GPIO);
 
     mcpwm_config_t pwm_config = {
-        .frequency = 1, // frequecy in Hz
-        .cmpr_a = 20, // duty cycle of PMWx! = 0
+        .frequency = 30, // frequecy in Hz
+        .cmpr_a = 0, // duty cycle of PMWx! = 0
         .counter_mode = MCPWM_UP_COUNTER,
         .duty_mode = MCPWM_DUTY_MODE_0
     };
