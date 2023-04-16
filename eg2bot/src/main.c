@@ -2,7 +2,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
-#include "driver/mcpwm.h"
+// #include "driver/mcpwm.h"
 #include "esp_log.h"
 #include "sdkconfig.h"
 
@@ -23,7 +23,7 @@ static uint8_t s_led_state = 0;
 // Prototypes
 static void blink_led(void);
 static void configure_led(void);
-static void configure_PWM(void);
+//static void configure_PWM(void);
 
 // Functions
 static void blink_led(void)
@@ -38,7 +38,7 @@ static void configure_led(void)
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
 }
 
-static void configure_PWM(void)
+/* static void configure_PWM(void)
 {
     mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, PWM_GPIO);
 
@@ -50,16 +50,16 @@ static void configure_PWM(void)
     };
 
     mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
-}
+} */
 
 void app_main() {
 
     /* configure the peripheral according to the LED type */
     configure_led();
-    configure_PWM();
+    //configure_PWM();
     ESP_LOGI(TAG, "ESP demo PWM");
 
-    mcpwm_set_duty(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 20);
+    // mcpwm_set_duty(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 20);
 
     while(1)
     {
